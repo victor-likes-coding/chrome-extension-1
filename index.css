@@ -26,3 +26,7 @@ button {
     border: none;
     font-weight: bold;
 }
+
+li {
+    list-style: none;
+}
