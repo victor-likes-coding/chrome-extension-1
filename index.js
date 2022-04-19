@@ -1,4 +1,4 @@
-let leads = JSON.parse(localStorage.getItem("myLeads")) || [];
+let myLeads = JSON.parse(localStorage.getItem("myLeads")) || [];
 const inputEl = document.querySelector("#input-el");
 const leadsList = document.querySelector("#leads");
 const deleteBtn = document.querySelector("#delete-btn");
@@ -6,8 +6,8 @@ const deleteBtn = document.querySelector("#delete-btn");
 const saveLead = () => {
     const inputValue = inputEl.value;
     if (inputValue) {
-        leads.push(inputValue);
-        localStorage.setItem("myLeads", JSON.stringify(leads));
+        myLeads.push(inputValue);
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
         displayLead(inputValue);
         inputEl.value = "";
     }
@@ -25,7 +25,7 @@ const deleteChildElements = (element) => {
 
 const deleteLeads = () => {
     localStorage.setItem("myLeads", JSON.stringify([]));
-    leads = getLeads();
+    myLeads = getLeads();
     // get rid of ul children
     deleteChildElements(leadsList);
 };
@@ -45,7 +45,7 @@ const displayLead = (lead) => {
     leadsList.appendChild(li);
 };
 
-const renderLeads = () => {
+const renderLeads = (leads) => {
     for (let lead of leads) {
         displayLead(lead);
     }
@@ -56,6 +56,6 @@ const inputBtn = document.querySelector("#input-btn");
 inputBtn.addEventListener("click", saveLead);
 deleteBtn.addEventListener("dblclick", deleteLeads);
 
-if (leads) {
+if (myLeads) {
     renderLeads();
 }
