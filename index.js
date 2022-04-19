@@ -45,7 +45,7 @@ const displayLead = (lead) => {
     leadsList.appendChild(li);
 };
 
-const renderLeads = (leads) => {
+const render = (leads) => {
     for (let lead of leads) {
         displayLead(lead);
     }
@@ -57,5 +57,5 @@ inputBtn.addEventListener("click", saveLead);
 deleteBtn.addEventListener("dblclick", deleteLeads);
 
 if (myLeads) {
-    renderLeads();
+    render();
 }
