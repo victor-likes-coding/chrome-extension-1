@@ -52,7 +52,7 @@ const renderLeads = () => {
 const inputBtn = document.querySelector("#input-btn");
 
 inputBtn.addEventListener("click", saveLead);
-deleteBtn.addEventListener("click", deleteLeads);
+deleteBtn.addEventListener("dblclick", deleteLeads);
 
 if (leads) {
     renderLeads();
