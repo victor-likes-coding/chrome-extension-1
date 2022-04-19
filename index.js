@@ -1,12 +1,14 @@
-const myLeads = [];
+const leads = JSON.parse(localStorage.getItem("myLeads")) || [];
+console.log(leads);
 const inputEl = document.querySelector("#input-el");
 const leadsList = document.querySelector("#leads");
 
 const saveLead = () => {
     const inputValue = inputEl.value;
-    myLeads.push(inputValue);
-    inputEl.value = "";
+    leads.push(inputValue);
+    localStorage.setItem("myLeads", JSON.stringify(leads));
     displayLead(inputValue);
+    inputEl.value = "";
 };
 
 const createListLink = (site) => {
@@ -25,7 +27,7 @@ const displayLead = (lead) => {
 };
 
 const renderLeads = () => {
-    for (let lead of myLeads) {
+    for (let lead of leads) {
         displayLead(lead);
     }
 };
