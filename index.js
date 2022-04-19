@@ -5,10 +5,12 @@ const deleteBtn = document.querySelector("#delete-btn");
 
 const saveLead = () => {
     const inputValue = inputEl.value;
-    leads.push(inputValue);
-    localStorage.setItem("myLeads", JSON.stringify(leads));
-    displayLead(inputValue);
-    inputEl.value = "";
+    if (inputValue) {
+        leads.push(inputValue);
+        localStorage.setItem("myLeads", JSON.stringify(leads));
+        displayLead(inputValue);
+        inputEl.value = "";
+    }
 };
 
 const getLeads = () => {
