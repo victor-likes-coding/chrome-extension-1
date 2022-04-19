@@ -1,4 +1,4 @@
-const myLeads = ["www", "http"];
+const myLeads = ["https://www.google.com"];
 const inputEl = document.querySelector("#input-el");
 const leadsList = document.querySelector("#leads");
 
@@ -9,17 +9,24 @@ const saveLead = () => {
     displayLead(inputValue);
 };
 
-const displayLead = (lead) => {
+const createListLink = (site) => {
     const li = document.createElement("li");
-    li.textContent = lead;
+    const a = document.createElement("a");
+    a.href = site;
+    a.target = "_blank";
+    a.textContent = site;
+    li.appendChild(a);
+    return li;
+};
+
+const displayLead = (lead) => {
+    const li = createListLink(lead);
     leadsList.appendChild(li);
 };
 
 const renderLeads = () => {
     for (let lead of myLeads) {
-        const li = document.createElement("li");
-        li.textContent = lead;
-        leadsList.appendChild(li);
+        displayLead(lead);
     }
 };
 
