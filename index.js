@@ -34,4 +34,6 @@ const renderLeads = () => {
 const inputBtn = document.querySelector("#input-btn");
 
 inputBtn.addEventListener("click", saveLead);
-renderLeads();
+if (leads) {
+    renderLeads();
+}
