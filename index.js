@@ -13,7 +13,7 @@ const saveLead = () => {
 const createListLink = (site) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = site;
+    a.href = `//${site}`;
     a.target = "_blank";
     a.textContent = site;
     li.appendChild(a);
