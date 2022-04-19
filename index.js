@@ -1,4 +1,4 @@
-const myLeads = ["https://www.google.com"];
+const myLeads = [];
 const inputEl = document.querySelector("#input-el");
 const leadsList = document.querySelector("#leads");
 
