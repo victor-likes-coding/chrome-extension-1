@@ -1,5 +1,4 @@
 const leads = JSON.parse(localStorage.getItem("myLeads")) || [];
-console.log(leads);
 const inputEl = document.querySelector("#input-el");
 const leadsList = document.querySelector("#leads");
 
