@@ -7,17 +7,16 @@ const tabBtn = document.querySelector("#tab-btn");
 // example dummy data structure
 const tabs = [{ url: "https://www.linkedin.com/in/per-harald-borgen/" }];
 
-const getTabUrl = () => {
-    const tabUrl = tabs[0][url];
-    console.log(tabUrl);
+const saveToLocalStorage = (key, value) => {
+    myLeads.push(value);
+    localStorage.setItem(key, JSON.stringify(myLeads));
+    displayLead(value);
 };
 
 const saveLead = () => {
     const inputValue = inputEl.value;
     if (inputValue) {
-        myLeads.push(inputValue);
-        localStorage.setItem("myLeads", JSON.stringify(myLeads));
-        displayLead(inputValue);
+        saveToLocalStorage("myLeads", inputValue);
         inputEl.value = "";
     }
 };
