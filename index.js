@@ -2,6 +2,15 @@ let myLeads = JSON.parse(localStorage.getItem("myLeads")) || [];
 const inputEl = document.querySelector("#input-el");
 const leadsList = document.querySelector("#leads");
 const deleteBtn = document.querySelector("#delete-btn");
+const tabBtn = document.querySelector("#tab-btn");
+
+// example dummy data structure
+const tabs = [{ url: "https://www.linkedin.com/in/per-harald-borgen/" }];
+
+const getTabUrl = () => {
+    const tabUrl = tabs[0][url];
+    console.log(tabUrl);
+};
 
 const saveLead = () => {
     const inputValue = inputEl.value;
