@@ -4,8 +4,13 @@ const leadsList = document.querySelector("#leads");
 const deleteBtn = document.querySelector("#delete-btn");
 const tabBtn = document.querySelector("#tab-btn");
 
-// example dummy data structure
-const tabs = [{ url: "https://www.linkedin.com/in/per-harald-borgen/" }];
+const saveTab = () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const url = tabs[0].url;
+        // use `url` here inside the callback because it's asynchronous!
+        saveToLocalStorage("myLeads", url);
+    });
+};
 
 const saveToLocalStorage = (key, value) => {
     myLeads.push(value);
@@ -65,6 +70,7 @@ const inputBtn = document.querySelector("#input-btn");
 
 inputBtn.addEventListener("click", saveLead);
 deleteBtn.addEventListener("dblclick", deleteLeads);
+tabBtn.addEventListener("click", saveTab);
 
 if (myLeads) {
     render(myLeads);
